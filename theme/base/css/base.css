@@ -1,0 +1,25 @@
+html,body{
+    font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+    height:100%;
+    margin:0px;
+    padding: 0px;
+    font-size: 14px;
+}
+
+.navbar-nav li{
+    margin: 0px 3px;
+}
+
+#menu{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    background: rgba(100, 100, 100, 0.85);
+    padding: 10px;
+}
+#menu button{
+    margin: 3px 0;
+}
+#menu span{
+    color: #FFFFFF;
+}

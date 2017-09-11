@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>动态标绘演示系统</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.21/esri/themes/calcite/dijit/calcite.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.21/esri/css/esri.css"/>
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="theme/base/css/base.css"/>
+</head>
+<body>
+<div style="position:relative;z-index:900">
+    <!-- toolbar -->
+    <nav class="navbar navbar-default" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand" href="#" style="color:#990000">动态标绘系统（for ArcGIS）</span>
+            </div>
+            <div id="esricdBar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button node-type="clearBtn" type="button" class="btn btn-default navbar-btn">
+                            清除
+                        </button>
+                    </li>
+                    <li>
+                        <button node-type="outputBtn" type="button" class="btn btn-default navbar-btn">
+                            导出标绘
+                        </button>
+                    </li>
+                    <li>
+                        <input id="inputfile" type="file" style="display:none">
+                        <button node-type="inputBtn" type="button" class="btn btn-default navbar-btn">
+                            导入标绘
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- toolbar end -->
+</div>
+
+<div id="mapDiv" style="position:relative;"></div>
+<div id="menu">
+    <div>
+        <span>点线面</span>
+        <button type="button" class="btn btn-xs" node-type="POINT">单点</button>
+        <button type="button" class="btn btn-xs" node-type="MULTI_POINT">多点</button>
+        <button type="button" class="btn btn-xs" node-type="LINE">直线</button>
+        <button type="button" class="btn btn-xs" node-type="POLYLINE">折线</button>
+        <button type="button" class="btn btn-xs" node-type="POLYGON">多边形</button>
+        <button type="button" class="btn btn-xs" node-type="FREEHAND_POLYLINE">自由折线</button>
+        <button type="button" class="btn btn-xs" node-type="CIRCLE">圆形</button>
+        <button type="button" class="btn btn-xs" node-type="ELLIPSE">椭圆</button>
+        <button type="button" class="btn btn-xs" node-type="RECTANGLE">矩形</button>
+    </div>
+    <div>
+        <span>自定义</span>
+        <button type="button" class="btn btn-xs" node-type="CURVE">弧线</button>
+        <button type="button" class="btn btn-xs" node-type="ARROW">箭头</button>
+        <button type="button" class="btn btn-xs" node-type="LEFT_ARROW">左箭头</button>
+        <button type="button" class="btn btn-xs" node-type="RIGHT_ARROW">右箭头</button>
+        <button type="button" class="btn btn-xs" node-type="UP_ARROW">上箭头</button>
+        <button type="button" class="btn btn-xs" node-type="DOWN_ARROW">下箭头</button>
+        <button type="button" class="btn btn-xs" node-type="TRIANGLE">三角形</button>
+        <button type="button" class="btn btn-xs" node-type="RECT FLAG">矩形旗标</button>
+        <button type="button" class="btn btn-xs" node-type="TRIANGLE FLAG">三角旗标</button>
+        <button type="button" class="btn btn-xs" node-type="ASSEMBLY AREA">汇集区域</button>
+        <button type="button" class="btn btn-xs" node-type="SIMPLE ARROW">平头箭头</button>
+        <button type="button" class="btn btn-xs" node-type="STRAIGHT ARROW">直箭头</button>
+        <button type="button" class="btn btn-xs" node-type="CUSTOM ARROW">自定义箭头</button>
+        <button type="button" class="btn btn-xs" node-type="TAILED ARROW">燕尾箭头</button>
+        <button type="button" class="btn btn-xs" node-type="CUSTOM TAILED ARROW">自定义燕尾箭头</button>
+        <button type="button" class="btn btn-xs" node-type="DOUBLE ARROW">双箭头</button>
+        <button type="button" class="btn btn-xs" node-type="MULTI ARROW">三箭头</button>
+    </div>
+</div>
+
+<script src="libs/jquery/jquery-1.11.1.min.js"></script>
+<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="config/dojoConfig.js"></script>
+<script src="https://js.arcgis.com/3.21/"></script>
+<script>
+    var myApp;
+    require(["app/main", "dojo/domReady!"], function (Main) {
+        myApp = new Main();
+        myApp.startup();
+    });
+</script>
+</body>
+</html>
